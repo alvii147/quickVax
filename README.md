@@ -2,10 +2,11 @@ Install pip
 ```
 pip3 install virtualenv
 ```
-Activate virtualenv
+Create and activate virtualenv
 ```
 cd quickVax
 python3 -m venv env
+source env/bin/activate
 ```
 Dependencies
 ```
