@@ -7,10 +7,8 @@ fi
 SCRIPT_DIR=`dirname ${BASH_SOURCE[0]}`
 cd $SCRIPT_DIR
 
-set -e
-
-$PYTHON_CMD manage.py makemigrations
-$PYTHON_CMD manage.py migrate
+# $PYTHON_CMD manage.py makemigrations
+# $PYTHON_CMD manage.py migrate
 
 cd frontend
 npm run dev
