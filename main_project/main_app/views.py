@@ -1,34 +1,35 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm
-from django.contrib.auth.models import User
-from .serializers import UserSerializer
+from .models import Patient
+from .forms import PatientRegistrationForm
+from .serializers import PatientSerializer
 from rest_framework import generics
 
 def home(request):
     return render(request, 'main_app/home.html')
 
-def register(request):
+def register_patient(request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+        form = PatientRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created! You may now log in.')
             return redirect('accounts-login')
     else:
-        form = UserRegisterForm()
+        form = PatientRegistrationForm()
 
     context = {
+        'header' : "Register as a patient",
         'form' : form
     }
 
     return render(request, 'main_app/register.html', context)
 
-class UserListCreate(generics.ListCreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class PatientListCreate(generics.ListCreateAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
 
-class UserGetUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class PatientGetUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
