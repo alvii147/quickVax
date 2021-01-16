@@ -13,20 +13,45 @@ ul {
 }
 
 .bg-steel {
-  background-image: linear-gradient(to right, rgb(0, 230, 77) , rgb(51, 204, 204));
+  background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(255, 255, 255));
+}
+
+#brand {
+  color: rgb(61, 90, 128);
+}
+
+#login-link {
+  color: rgb(238, 108, 77);
+}
+
+#logout-link {
+  color: rgb(238, 108, 77);
+}
+
+#signup-link {
+  color: rgb(238, 108, 77);
+}
+
+#welcome-link {
+  color: rgb(238, 108, 77);
+}
+
+@font-face {
+  font-family: 'Rubik One';
+  src: url('./rubik_one.ttf');
 }
 
 .site-header .navbar-nav .nav-link {
-  color: rgb(242, 242, 242);
+  color: rgb(41, 50, 65);
+  font-style: normal;
+  font-family: 'Rubik One', sans-serif;
+  font-weight: normal;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(41, 50, 65);
 }
 
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
-}
 
 .content-section {
   background: rgb(255, 255, 255);

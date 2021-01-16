@@ -1,8 +1,28 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-//import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Home";
+import Queue from "./Queue";
+import background from '../images/background.jpg';
+import '../index.css';
 
-class App extends Component {
+
+export default function App() {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/queue">
+                    <Queue />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+        </Router>
+    );
+}
+
+class Yes extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -147,15 +167,13 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <h1 className="display-1">Django application</h1>
-                <h1 className="display-4">Welcome to the home page!</h1>
+            <div class="center">
+                <img src={background} alt="this is the background image" />
             </div>
         );
     }
 }
 
-export default App;
 
 const container = document.getElementById("app");
 render(<App />, container);
