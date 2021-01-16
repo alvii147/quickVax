@@ -18,3 +18,7 @@ Run the server
 ```
 ./launch.sh
 ```
+Or run just the Django app
+```
+python3 manage.py runserver
+```
