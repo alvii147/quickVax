@@ -1,8 +1,25 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-//import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Home";
+import Queue from "./Queue";
 
-class App extends Component {
+export default function App() {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/queue">
+                    <Queue />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+        </Router>
+    );
+}
+
+class Yes extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -155,7 +172,6 @@ class App extends Component {
     }
 }
 
-export default App;
 
 const container = document.getElementById("app");
 render(<App />, container);

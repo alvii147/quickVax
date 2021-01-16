@@ -13,7 +13,11 @@ ul {
 }
 
 .bg-steel {
-  background-image: linear-gradient(to right, rgb(0, 230, 77) , rgb(51, 204, 204));
+  background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(255, 255, 255));
+}
+
+#brand {
+  color: rgb(61, 90, 128);
 }
 
 .site-header .navbar-nav .nav-link {
