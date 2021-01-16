@@ -3,6 +3,9 @@ import { render } from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Queue from "./Queue";
+import background from '../images/background.jpg';
+import '../index.css';
+
 
 export default function App() {
     return (
@@ -164,9 +167,8 @@ class Yes extends Component {
 
     render() {
         return (
-            <div>
-                <h1 className="display-1">Django application</h1>
-                <h1 className="display-4">Welcome to the home page!</h1>
+            <div class="center">
+                <img src={background} alt="this is the background image" />
             </div>
         );
     }
