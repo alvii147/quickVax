@@ -11,6 +11,8 @@ source env/bin/activate
 Dependencies
 ```
 pip3 install -r requirements.txt
+cd main_project/frontend
+npm install
 ```
 Run the server
 ```
