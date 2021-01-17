@@ -5,9 +5,6 @@ import Home from "./Home";
 import Queue from "./Queue";
 import MedicalProfileInsurance from "./medicalProfileInsurance";
 import background from '../images/background.jpg';
-import '../index.css';
-//import background from '../images/background.jpg';
-//import '../index.css';
 
 
 export default function App() {
@@ -27,6 +24,7 @@ export default function App() {
         </Router>
     );
 }
+
 
 class Yes extends Component {
     constructor(props) {

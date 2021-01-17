@@ -13,7 +13,6 @@
     <body>
         <header class="site-header">
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-                <div class="container">
                     <a id="brand" class="brand navbar-brand mr-4" href="/">
                         <img src="{% static 'main_app/logo.svg' %}" alt="logo" height="90" class="d-inline-block align-top">
                     </a>
@@ -31,15 +30,14 @@
                                 <a id="welcome-link" class="nav-item nav-link" href="#">Welcome, {{ user.name }}</a>
                                 <a id="logout-link" class="nav-item nav-link" href="#">Logout</a>
                             {% else %}
-                                <a id="login-link" class="nav-item nav-link" href="#">Login</a>
+                                <a id="login-link" class="nav-item nav-link" href="{% url 'accounts-login-patient' %}">Login</a>
                                 <a id="signup-link" class="nav-item nav-link" href="{% url 'accounts-register-patient' %}">Register</a>
                             {% endif %}
                         </div>
                     </div>
-                </div>
             </nav>
         </header>
-        <main role="main" class="container">
+        <main role="main" class="wts">
             {% if messages %}
                 {% for message in messages %}
                     <div class = "alert alert-{{ message.tags }}">
