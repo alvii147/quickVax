@@ -1,25 +1,41 @@
 import React from 'react'
 import Checkbox from '@material-ui/core/Checkbox';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import '../App.css'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        height: 140,
-        width: 100,
-    },
-    control: {
-        padding: theme.spacing(2),
-    },
-}));
+const header = {
+    fontFamily: 'RubikOne',
+    color: 'black',
+    textAlign: 'center'
+}
+
+const header2 = {
+    fontFamily: 'RubikOne',
+    color: 'black',
+    fontSize: 30,
+    marginTop: 55
+}
+
+const header3 = {
+    fontFamily: 'RubikOne',
+    color: 'black',
+    fontSize: 20
+}
+
+const checkboxText = {
+    fontSize: 20,
+    color: 'black',
+    marginTop: 7
+}
+
+const subscriptText = {
+    fontSize: 14,
+    fontFamily: 'RubikOne',
+    color: 'black',
+    marginTop: 70
+}
+
 
 export default function MedicalProfileInsurance() {
 
@@ -29,50 +45,145 @@ export default function MedicalProfileInsurance() {
     //     setChecked(event.target.checked);
     // };
 
-    const [spacing, setSpacing] = React.useState(2);
-    const classes = useStyles();
-
-    // const handleChange = (event) => {
-    //     setSpacing(Number(event.target.value));
-    // };
-
     return (
         <div>
-            <h1 style={{ color: 'white' }}>easter egg</h1>
-            <h1 style={{ color: 'white' }}>easter egg 2 :))</h1>
-            <h1 style={{ color: 'Black' }}>Medical Profile</h1>
-            <h2>Sex (gender assigned at birth)</h2>
-            <Grid item xs={12}>
-                <Grid container justify="left" spacing={spacing}>
-                    <Grid key={0} item>
-                        <Checkbox
-                            defaultChecked
-                            color="primary"
-                            inputProps={{ 'aria-label': 'secondary checkbox' }}
-                        />
+            <h1 style={header}>Medical Profile</h1>
+            <Grid container spacing={8}>
+                <Grid key={0} item>
+                    <Grid container justify="left" spacing={2}>
+                        <Grid key={0} item>
+                            <p style={header2}>Sex</p>
+                        </Grid>
+                        <Grid key={1} item>
+                            <p style={subscriptText}>(gender assigned at birth)</p>
+                        </Grid>
                     </Grid>
-                    <Grid key={1} item>
-                        Female
+                    <Grid item xs={12}>
+                        <Grid container>
+                            <Grid key={0} item>
+                                <Checkbox
+                                    defaultChecked
+                                    color="primary"
+                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                />
+                            </Grid>
+                            <Grid key={1} item>
+                                <p style={checkboxText}>Female</p>
+                            </Grid>
+                        </Grid>
+                        <Grid container>
+                            <Grid key={0} item>
+                                <Checkbox
+                                    defaultChecked
+                                    color="primary"
+                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                />
+                            </Grid>
+                            <Grid key={1} item>
+                                <p style={checkboxText}>Male</p>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
-                <Grid container justify="left" spacing={spacing}>
-                    <Grid key={0} item>
-                        <Checkbox
-                            defaultChecked
-                            color="primary"
-                            inputProps={{ 'aria-label': 'secondary checkbox' }}
-                        />
-                    </Grid>
-                    <Grid key={1} item>
-                        Male
+
+                <Grid key={1} item>
+                    <Grid container justify="left">
+                        <div style={header2}>Race</div>
+                        <Grid container spacing={3}>
+                            <Grid key={0} item>
+                                <Grid container justify="left">
+                                    <Grid key={0} item>
+                                        <Checkbox
+                                            defaultChecked
+                                            color="primary"
+                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                        />
+                                    </Grid>
+                                    <Grid key={1} item>
+                                        <p style={checkboxText}>Asian</p>
+                                    </Grid>
+                                </Grid>
+                                <Grid container justify="left">
+                                    <Grid key={0} item>
+                                        <Checkbox
+                                            defaultChecked
+                                            color="primary"
+                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                        />
+                                    </Grid>
+                                    <Grid key={1} item>
+                                        <p style={checkboxText}>Black/African American</p>
+                                    </Grid>
+                                </Grid>
+                                <Grid container justify="left">
+                                    <Grid key={0} item>
+                                        <Checkbox
+                                            defaultChecked
+                                            color="primary"
+                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                        />
+                                    </Grid>
+                                    <Grid key={1} item>
+                                        <p style={checkboxText}>Pacific Islanders</p>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid key={1} item>
+                                <Grid container justify="left">
+                                    <Grid key={0} item>
+                                        <Checkbox
+                                            defaultChecked
+                                            color="primary"
+                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                        />
+                                    </Grid>
+                                    <Grid key={1} item>
+                                        <p style={checkboxText}>White</p>
+                                    </Grid>
+                                </Grid>
+                                <Grid container justify="left">
+                                    <Grid key={0} item>
+                                        <Checkbox
+                                            defaultChecked
+                                            color="primary"
+                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                        />
+                                    </Grid>
+                                    <Grid key={1} item>
+                                        <p style={checkboxText}>Hispanic</p>
+                                    </Grid>
+                                </Grid>
+                                <Grid container justify="left">
+                                    <Grid key={0} item>
+                                        <Checkbox
+                                            defaultChecked
+                                            color="primary"
+                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                        />
+                                    </Grid>
+                                    <Grid key={1} item>
+                                        <p style={checkboxText}>First Nations</p>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid key={2} item>
+                                <Grid container justify="left" spacing={2}>
+                                    <Grid key={0} item>
+                                        <p style={checkboxText}>Other:</p>
+                                    </Grid>
+                                    <Grid key={1} item>
+                                        <TextField
+                                            id="standard-helperText"
+                                            size="small"
+                                        />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
+
             </Grid>
-            <Checkbox
-                defaultChecked
-                color="primary"
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-            />
         </div>
     );
 }
