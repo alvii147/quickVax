@@ -1,0 +1,39 @@
+{% extends "main_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Vaccination Queue
+{% endblock %}
+{% block body %}
+    {% load static %}
+    <div class = "content-section">
+        <h1>
+            Institution Vaccine Queue
+        </h1>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
+                ID <span>Name</span> City <span class="badge badge-info badge-pill">Age</span>
+            </li>
+            {% for patient in patients %}
+                <a href = "#">
+                {% if patient.age > 60 %}
+                    <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                {% elif patient.uhc %}
+                    <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                {% else %}
+                    <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+                {% endif %}
+                {{ patient.id }} <strong>{{patient.first_name}} {{patient.last_name}}</strong> {{patient.city}}
+                {% if patient.age > 60 %}
+                    <span class="badge badge-success badge-pill">{{patient.age}}</span>
+                {% elif patient.uhc %}
+                    <span class="badge badge-primary badge-pill">{{patient.age}}</span>
+                {% else %}
+                    <span class="badge badge-secondary badge-pill">{{patient.age}}</span>
+                {% endif %}
+                </li></a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+{% block src %}
+{% endblock %}
