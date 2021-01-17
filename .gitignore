@@ -2,3 +2,4 @@ env/
 __pycache__/
 node_modules
 launch.sh
+main_project/frontend/src/static/main.js
