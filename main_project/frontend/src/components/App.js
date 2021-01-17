@@ -7,8 +7,8 @@ import MedicalProfileInsurance from "./medicalProfileInsurance";
 import background from '../images/background.jpg';
 import CreateNewProfile from "./CreateNewProfile";
 
-
 export default function App() {
+
     return (
         <Router>
             <Switch>
