@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-AUTH_USER_MODEL = 'main_app.Patient'
+AUTH_USER_MODEL = 'main_app.User'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
