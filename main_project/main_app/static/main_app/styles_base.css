@@ -41,6 +41,10 @@ ul {
   src: url('./rubik_one.ttf');
 }
 
+main {
+  padding-top: 40px;
+}
+
 .site-header .navbar-nav .nav-link {
   color: rgb(41, 50, 65);
   font-style: normal;

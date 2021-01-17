@@ -3,8 +3,14 @@ import { render } from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Queue from "./Queue";
+<<<<<<< HEAD
+import MedicalProfileInsurance from "./medicalProfileInsurance";
 import background from '../images/background.jpg';
 import '../index.css';
+//import background from '../images/background.jpg';
+//import '../index.css';
+=======
+>>>>>>> 635b3953d450b4a27e64539e2a8a21362c275fd7
 
 
 export default function App() {
@@ -13,6 +19,9 @@ export default function App() {
             <Switch>
                 <Route path="/queue">
                     <Queue />
+                </Route>
+                <Route path="/medicalProfileInsurance">
+                    <MedicalProfileInsurance />
                 </Route>
                 <Route path="/">
                     <Home />
@@ -46,15 +55,15 @@ class Yes extends Component {
 
     handleChange(event) {
         const data = this.state.postData;
-        if(event.target.name == "id") {
+        if (event.target.name == "id") {
             this.setState({
                 id: event.target.value
             })
             return
         }
-        
-        if(event.target.name == "status") {
-            if(event.target.checked) {
+
+        if (event.target.name == "status") {
+            if (event.target.checked) {
                 data["status"] = true;
             }
             else {
@@ -62,7 +71,7 @@ class Yes extends Component {
             }
         }
         else {
-            if(!event.target.name && data.hasOwnProperty(event.target.name)) {
+            if (!event.target.name && data.hasOwnProperty(event.target.name)) {
                 delete data[event.target.name];
             }
             else {
@@ -87,50 +96,50 @@ class Yes extends Component {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-        .then(response => {
-            if (response.status > 400) {
-                console.log("Error in POST request");
-            }
-            return response.json();
-        })
-        .then(json => {
-            console.log(json);
-            this.ReadAllUsersAPI();
-        });
+            .then(response => {
+                if (response.status > 400) {
+                    console.log("Error in POST request");
+                }
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+                this.ReadAllUsersAPI();
+            });
     }
 
     ReadAllUsersAPI() {
         console.log("Reading...");
         fetch("/api/users/")
-        .then(response => {
-            if (response.status > 400) {
-                console.log("Error in GET request");
-            }
-            return response.json();
-        })
-        .then(json => {
-            console.log(json);
-            this.setState({
-                readAllData: json
+            .then(response => {
+                if (response.status > 400) {
+                    console.log("Error in GET request");
+                }
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+                this.setState({
+                    readAllData: json
+                });
             });
-        });
     }
 
     ReadUserAPI() {
         console.log("Reading Single Entry...");
         fetch("/api/users/" + this.state.id + "/")
-        .then(response => {
-            if (response.status > 400) {
-                console.log("Error in GET request");
-            }
-            return response.json();
-        })
-        .then(json => {
-            console.log(json);
-            this.setState({
-                readData: json
+            .then(response => {
+                if (response.status > 400) {
+                    console.log("Error in GET request");
+                }
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+                this.setState({
+                    readData: json
+                });
             });
-        });
     }
 
     UpdateUserAPI() {
@@ -142,16 +151,16 @@ class Yes extends Component {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-        .then(response => {
-            if (response.status > 400) {
-                console.log("Error in PATCH request");
-            }
-            return response.json();
-        })
-        .then(json => {
-            console.log(json);
-            this.ReadAllUsersAPI();
-        });
+            .then(response => {
+                if (response.status > 400) {
+                    console.log("Error in PATCH request");
+                }
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+                this.ReadAllUsersAPI();
+            });
     }
 
     DeleteUserAPI() {
@@ -159,10 +168,10 @@ class Yes extends Component {
         fetch("/api/users/" + this.state.id + "/", {
             method: "DELETE"
         })
-        .then(response => {
-            console.log(response);
-            this.ReadAllUsersAPI();
-        });
+            .then(response => {
+                console.log(response);
+                this.ReadAllUsersAPI();
+            });
     }
 
     render() {

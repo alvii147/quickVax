@@ -1,0 +1,11 @@
+.wrapper {
+    max-width: 300px; 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@font-face {
+    font-family: 'RubikOne';
+    src: url("./fonts/rubik_one.ttf");
+  }
+  
