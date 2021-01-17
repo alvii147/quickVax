@@ -64,6 +64,15 @@ export default function Home(props) {
         }
     }
 
+    function medicalClick() {
+        if (props.isAuth) {
+            history.push("/medicalProfileInsurance")
+        } else {
+            let url = window.location.href
+            window.location.href = url + "accounts/register/patient"
+        }
+    }
+
     return (
         <section style={sectionStyle}>
             <div>
@@ -72,7 +81,7 @@ export default function Home(props) {
                         <p style={topText}>Step 1:</p>
                     </Grid>
                     <Grid key={1} item>
-                        <Button style={top}>
+                        <Button style={top} onClick={medicalClick}>
                             Complete Medical Profile
                         </Button>
                     </Grid>
