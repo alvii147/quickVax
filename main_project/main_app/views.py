@@ -15,11 +15,9 @@ def login_patient(request):
         form = AuthenticationForm(request.POST)
         email = request.POST['username']
         password = request.POST['password']
-        patient = authenticate(username = email, password = password)
-        print(patient)
-        if patient:
-            print("HERE!")
-            login(request, patient.user)
+        user = authenticate(username = email, password = password)
+        if user:
+            login(request, user)
             return redirect('frontend-index')
         else:
             messages.error(request, f'Incorrect email or password')
@@ -34,18 +32,18 @@ def login_patient(request):
     return render(request, 'main_app/login.html', context)
 
 def register_patient(request):
+    patient = PatientRegistrationForm()
     if request.method == 'POST':
         form = PatientRegistrationForm(request.POST)
         if form.is_valid():
-            user = User(username = form.instance.email, is_patient = True, name = form.instance.first_name)
+            user = User.objects.create_user(username = form.cleaned_data['email'], password = form.cleaned_data['password1'])
+            user.is_patient = True
+            user.name = form.instance.first_name
             user.save()
             form.instance.user = user
-            form.instance.save()
-            form.save()
+            patient = form.save()
             messages.success(request, f'Account created! You may now log in.')
             return redirect('accounts-login-patient')
-    else:
-        patient = PatientRegistrationForm()
 
     context = {
         'header' : 'Register as a patient',
@@ -76,22 +74,22 @@ def login_institution(request):
     return render(request, 'main_app/login.html', context)
 
 def register_institution(request):
+    institution = InstitutionRegistrationForm()
     if request.method == 'POST':
         form = InstitutionRegistrationForm(request.POST)
         if form.is_valid():
-            user = User(username = form.instance.email, is_patient = True, name = form.instance.institution_name)
+            user = User.objects.create_user(username = form.instance.email, password = form.cleaned_data['password1'])
+            user.is_institution = True
+            user.name = form.instance.institution_name
             user.save()
             form.instance.user = user
-            form.instance.save()
-            form.save()
+            institution = form.save()
             messages.success(request, f'Account created! You may now log in.')
-            return redirect('accounts-login-institution')
-    else:
-        patient = InstitutionRegistrationForm()
+            return redirect('accounts-login-patient')
 
     context = {
         'header' : 'Register as an institution',
-        'form' : patient
+        'form' : institution
     }
 
     return render(request, 'main_app/register.html', context)
