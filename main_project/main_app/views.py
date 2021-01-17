@@ -7,6 +7,13 @@ from .forms import PatientRegistrationForm, InstitutionRegistrationForm
 from .serializers import UserSerializer, PatientSerializer, InstitutionSerializer
 from rest_framework import generics
 import qrcode
+from datetime import date
+import random
+from itertools import chain
+
+def calculate_age(born):
+    today = date.today()
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 def home(request):
     return render(request, 'main_app/home.html')
@@ -43,6 +50,8 @@ def register_patient(request):
             user.name = form.instance.first_name
             user.save()
             form.instance.user = user
+            form.instance.age = calculate_age(form.cleaned_data['date_of_birth'])
+            form.instance.uhc = bool(random.getrandbits(1))
             patient = form.save()
             messages.success(request, f'Account created! You may now log in.')
             return redirect('accounts-login-patient')
@@ -101,13 +110,28 @@ def qrcodepage(request):
     patient = Patient.objects.filter(user_id = request.user.id).first()
     if patient:
         data = 'http://localhost:8000/api/patients/' + str(patient.id) + '/'
-        print(data)
         qr = qrcode.QRCode(version = 1, box_size = 10, border = 5)
         qr.add_data(data)
         qr.make(fit = True)
         img = qr.make_image(fill = 'black', back_color = 'white')
         img.save('main_app/static/main_app/qrcode.png')
         return render(request, 'main_app/qrcode.html')
+    return redirect('frontend-index')
+
+def queue(request):
+    institution = Institution.objects.filter(user_id = request.user.id).first()
+    if institution or True:
+        patients = Patient.objects.all()
+        patients_old = patients.filter(age__gt = 60)
+        patients_young = patients.filter(age__lte = 60)
+        patients_young_uhc = patients_young.filter(uhc = True)
+        patients_young = patients_young.filter(uhc = False)
+        patients = list(chain(patients_old, patients_young_uhc, patients_young))
+
+        context = {
+            'patients' : patients,
+        }
+        return render(request, 'main_app/queue.html', context)
     return redirect('frontend-index')
 
 class UserListCreate(generics.ListCreateAPIView):
