@@ -3,13 +3,13 @@
 COVID-19 has greatly impacted all of our lives. We have been forced to adapt and be creative with how we are carrying out our daily routines. Even right now, this hackathon has been shifted entirely to an online platform. As we see the roll-out of vaccines, everyone is eager to obtain one. The eligibility and priority list for vaccinations have been released and people are starting to receive the drug. However, these individuals are still forced to wait in person, increasing the risk of contracting the virus. As with everything in the healthcare system, queues are inevitable.  
   
 ![Stats](https://www.who.int/immunization/monitoring_surveillance/immunization-and-covid-19/outreach-disruption.png)  
-*WHO,* (2020). [Special feature: immunization and COVID-19](https://www.who.int/immunization/monitoring_surveillance/immunization-and-covid-19/en/)
+*WHO,* (2020). [Special feature: immunization and COVID-19](https://www.who.int/immunization/monitoring_surveillance/immunization-and-covid-19/en/)  
   
 ## What it does
 Introducing ***quickVax!***  
   
-Click image below for demo video (or click [here](https://youtu.be/CR-H_pygR2w))  
 [![logo](img/logo.jpg)](https://youtu.be/CR-H_pygR2w)  
+Click image above for demo video (or click [here](https://youtu.be/CR-H_pygR2w))  
 Click [here](http://www.usain-bolt-thought-he-was-quick-until-quickvax-came.online.ngrok.io/) to try the application out!  
   
 ***quickVax*** was created out of the need to eliminate another tiring line up and minimize the strain associated with the COVID-19 pandemic. We realized many individuals waiting to obtain a vaccine can wait hours on end. This is due to poor logistical management and the many forms that must be completed by the patient. With ***quickVax,*** we are streamlining the process to have the necessary documents already gathered as well as minimizing risk by creating a virtual queue. Therefore, those who are at the vaccination facility are purely there to receive a vaccination. No paperwork, just the scan of your unique QR code identifier.  
