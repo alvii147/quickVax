@@ -63,3 +63,12 @@ main {
   border-radius: 3px;
   margin-bottom: 20px;
 }
+
+#qrcodeContainter
+{
+  position: relative;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
