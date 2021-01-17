@@ -28,6 +28,7 @@ export default function App() {
     );
 }
 
+
 class Yes extends Component {
     constructor(props) {
         super(props);
