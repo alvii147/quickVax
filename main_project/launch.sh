@@ -14,4 +14,4 @@ cd frontend
 npm run dev
 
 cd ..
-$PYTHON_CMD manage.py runserver
+$PYTHON_CMD manage.py runserver 0.0.0.0:8000

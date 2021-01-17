@@ -27,6 +27,7 @@ def login_patient(request):
         form = AuthenticationForm()
 
     context = {
+        'header' : 'Login as a patient',
         'form' : form
     }
 
@@ -69,6 +70,7 @@ def login_institution(request):
         form = AuthenticationForm()
 
     context = {
+        'header' : 'Login as an institution',
         'form' : form
     }
 
@@ -98,7 +100,7 @@ def register_institution(request):
 def qrcodepage(request):
     patient = Patient.objects.filter(user_id = request.user.id).first()
     if patient:
-        data = 'https://localhost:8000/api/patient/' + str(patient.id)
+        data = 'http://localhost:8000/api/patients/' + str(patient.id) + '/'
         print(data)
         qr = qrcode.QRCode(version = 1, box_size = 10, border = 5)
         qr.add_data(data)
