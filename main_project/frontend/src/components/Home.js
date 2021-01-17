@@ -56,21 +56,11 @@ export default function Home(props) {
     let history = useHistory()
 
     function handleClick() {
-        if (props.isAuth) {
-            history.push("/queue")
-        } else {
-            let url = window.location.href
-            window.location.href = url + "accounts/register/patient"
-        }
+        history.push("/queue")
     }
 
     function medicalClick() {
-        if (props.isAuth) {
-            history.push("/medicalProfileInsurance")
-        } else {
-            let url = window.location.href
-            window.location.href = url + "accounts/register/patient"
-        }
+        history.push("/medicalProfileInsurance")
     }
 
     return (
