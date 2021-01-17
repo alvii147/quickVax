@@ -1,0 +1,9 @@
+.medicalBackground {
+    background-image: url("../images/medicalProfileBackground.svg");
+    height: 1050px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+}
+
