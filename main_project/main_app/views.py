@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import PatientRegistrationForm, InstitutionRegistrationForm
 from .serializers import UserSerializer, PatientSerializer, InstitutionSerializer
 from rest_framework import generics
+import qrcode
 
 def home(request):
     return render(request, 'main_app/home.html')
@@ -26,6 +27,7 @@ def login_patient(request):
         form = AuthenticationForm()
 
     context = {
+        'header' : 'Login as a patient',
         'form' : form
     }
 
@@ -68,6 +70,7 @@ def login_institution(request):
         form = AuthenticationForm()
 
     context = {
+        'header' : 'Login as an institution',
         'form' : form
     }
 
@@ -93,6 +96,19 @@ def register_institution(request):
     }
 
     return render(request, 'main_app/register.html', context)
+
+def qrcodepage(request):
+    patient = Patient.objects.filter(user_id = request.user.id).first()
+    if patient:
+        data = 'http://localhost:8000/api/patients/' + str(patient.id) + '/'
+        print(data)
+        qr = qrcode.QRCode(version = 1, box_size = 10, border = 5)
+        qr.add_data(data)
+        qr.make(fit = True)
+        img = qr.make_image(fill = 'black', back_color = 'white')
+        img.save('main_app/static/main_app/qrcode.png')
+        return render(request, 'main_app/qrcode.html')
+    return redirect('frontend-index')
 
 class UserListCreate(generics.ListCreateAPIView):
     queryset = User.objects.all()
