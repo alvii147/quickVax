@@ -3,11 +3,14 @@ import { render } from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Queue from "./Queue";
+<<<<<<< HEAD
 import MedicalProfileInsurance from "./medicalProfileInsurance";
 import background from '../images/background.jpg';
 import '../index.css';
 //import background from '../images/background.jpg';
 //import '../index.css';
+=======
+>>>>>>> 635b3953d450b4a27e64539e2a8a21362c275fd7
 
 
 export default function App() {
