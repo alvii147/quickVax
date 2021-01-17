@@ -5,8 +5,10 @@ import Home from "./Home";
 import Queue from "./Queue";
 import MedicalProfileInsurance from "./medicalProfileInsurance";
 import background from '../images/background.jpg';
+import CreateNewProfile from "./CreateNewProfile";
 
 export default function App() {
+
     return (
         <Router>
             <Switch>
@@ -15,6 +17,9 @@ export default function App() {
                 </Route>
                 <Route path="/medicalProfileInsurance">
                     <MedicalProfileInsurance />
+                </Route>
+                <Route path="/createNewProfile">
+                    <CreateNewProfile />
                 </Route>
                 <Route path="/">
                     <Home />

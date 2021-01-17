@@ -1,0 +1,15 @@
+{% extends "main_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    QR Code
+{% endblock %}
+{% block body %}
+    {% load static %}
+    <div class = "content-section">
+        <div id = "qrcodeContainter">
+            <img src="{% static 'main_app/qrcode.png' %}" alt="QR Code">
+        </div>
+    </div>
+{% endblock %}
+{% block src %}
+{% endblock %}

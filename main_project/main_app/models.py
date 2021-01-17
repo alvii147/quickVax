@@ -1,5 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager
+from datetime import date
+
+def calculate_age(born):
+    today = date.today()
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 class User(AbstractUser):
     is_patient = models.BooleanField(default = False)
@@ -22,6 +27,7 @@ class PatientManager(BaseUserManager):
         patient.last_name = last_name
         patient.middle_initial = middle_initial
         patient.date_of_birth = date_of_birth
+        patient.age = calculate_age(date_of_birth)
         patient.address_line_1 = address_line_1
         patient.address_line_2 = address_line_2
         patient.city = city
@@ -29,6 +35,7 @@ class PatientManager(BaseUserManager):
         patient.postal_code = postal_code
         patient.active = active
         patient.admin = admin
+        patient.uhc = False
 
         patient.save(using = self._db)
 
@@ -41,6 +48,7 @@ class Patient(AbstractBaseUser):
     last_name = models.CharField(max_length = 255, blank = True)
     middle_initial = models.CharField(max_length = 255, blank = True)
     date_of_birth = models.DateField()
+    age = models.IntegerField()
     address_line_1 = models.CharField(max_length = 255, blank = True)
     address_line_2 = models.CharField(max_length = 255, blank = True)
     city = models.CharField(max_length = 255, blank = True)
@@ -48,6 +56,7 @@ class Patient(AbstractBaseUser):
     postal_code = models.CharField(max_length = 7, blank = True)
     active = models.BooleanField(default = True)
     admin = models.BooleanField(default = False)
+    uhc = models.BooleanField(default = False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'date_of_birth', 'address_line_1', 'city', 'province', 'postal_code']

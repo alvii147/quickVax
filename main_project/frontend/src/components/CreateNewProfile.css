@@ -1,0 +1,8 @@
+.newProfileBackground {
+    background-image: url("../images/newProfileBackground.svg");
+    height: 850px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
