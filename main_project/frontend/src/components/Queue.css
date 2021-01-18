@@ -1,0 +1,55 @@
+.map-container {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    border: solid 1px black;
+}
+
+@font-face {
+    font-family: "rubik_one";
+    src: url("../fonts/rubik_one.ttf");
+}
+
+.outer-box-font {
+    font-family: "rubik_one";
+    color: rgb(61, 90, 128);
+}
+
+.inner-box-font {
+    color: rgb(238, 108, 77);
+}
+
+#queue-outer {
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(143, 163, 189);
+    align-items: center;
+    border-radius: 25px;
+    padding: 2%;
+}
+
+#queue-inner {
+    padding: 3%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    width: 100%;
+}
+
+#inner-inner-box {
+    display: flex;
+    flex-direction: row;
+}
+
+#right-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.item {
+    margin-right: 1%;
+}
